@@ -31,4 +31,5 @@ Queries E Dictionary is a single-page React + TypeScript playground for explorin
    npm run build
    ```
 
-## Demo: https://words-dictionary.vercel.app/
+## Demo: 
+[Live demo](https://queries-dictionary.vercel.app/)
