@@ -9,12 +9,21 @@ import WordsList from './WordsList';
 
 const Layout = styled.div`
     display: flex;
+    align-items: flex-start;
     column-gap: 1rem;
+    min-height: calc(100vh - 2rem);
 
     @media (max-width: 960px) {
         flex-direction: column;
+        align-items: stretch;
+        min-height: auto;
     }
-`
+`;
+
+const RightColumn = styled.div`
+    flex: 1 1 0;
+    min-width: 0;
+`;
 const Title = styled.h1`
     margin: 0;
     padding: 1rem 0 0;
@@ -66,6 +75,8 @@ const Counter = styled.span`
 `;
 
 const ChartContainer = styled.div`
+    width: 100%;
+
     @media (max-width: 650px) {
         position: fixed;
         height: 20rem;
@@ -112,7 +123,7 @@ const FilterDictionary: React.FC = () => {
     
     return <Layout>
         <WordsList />
-        <div>
+        <RightColumn>
             <Title>Dictionary Search</Title>
             <Container>
                 <InputWrapper>
@@ -183,9 +194,8 @@ const FilterDictionary: React.FC = () => {
                     )}
                 </Observer>
             </ChartContainer>
-        </div>
+        </RightColumn>
     </Layout>
 }
 
 export default  FilterDictionary;
-

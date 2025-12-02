@@ -5,14 +5,25 @@ import { Word } from '../store/Types';
 
 const Container = styled.section`
     margin: 2rem auto;
-    max-width: 600px;
+    max-width: 300px;
     min-width: 190px;
+    width: 100%;
     padding: 1rem;
     border: 1px solid #d4cdc0;
     border-radius: 4px;
     background-color: #fff;
     -webkit-box-shadow: 1px 3px 12px 1px rgba(0,0,0,0.12); 
     box-shadow: 1px 3px 12px 1px rgba(0,0,0,0.12);
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 960px) {
+        height: auto;
+        max-height: none;
+        overflow-y: visible;
+    }
 `;
 
 const Title = styled.h2`
