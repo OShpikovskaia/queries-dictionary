@@ -1,4 +1,4 @@
-import { observer, Observer } from 'mobx-react-lite';
+import { Observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { useCallback, useEffect, useRef } from 'react';
 import {filterStore} from '../store/FiltersStore';
