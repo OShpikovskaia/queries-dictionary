@@ -78,7 +78,7 @@ const WordsList: React.FC = () => {
 
     return (
         <Container>
-            <Title>List of words from db.json</Title>
+            <Title>List of words from words.json</Title>
             {isLoading && <Status>Loading...</Status>}
             {error && !isLoading && <Status>{error}</Status>}
             {!isLoading && !error && (

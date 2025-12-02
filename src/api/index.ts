@@ -1,6 +1,6 @@
 import { Word } from "../store/Types";
 
-export const DOMAIN = 'http://localhost:3001/words';
+export const DOMAIN = '/words.json';
 
 export const getWords = async(): Promise<Word[]> => {
     const res = await fetch(DOMAIN).then((res) => {

@@ -20,8 +20,6 @@ A single-page React + TypeScript playground that lets you explore a small dictio
 ```
 queries_e_dictionry/
 ├── public/                 # CRA static assets
-├── server/
-│   └── db.json             # json-server seed data
 ├── src/
 │   ├── api/                # Fetch helpers (currently only getWords)
 │   ├── components/         # Filter inputs, Chart, shared UI pieces
@@ -75,3 +73,8 @@ Execute `npm test` for watch-mode Jest tests. The project ships with CRA default
 - `Errors` component and `useResize` hook exist but are unused—safe starting points for enhancements (e.g., error states, responsive layout tweaks).
 
 Happy hacking! Update the README whenever the architecture or data contract changes.
+
+## Note
+This project is based on Create React App 5 and uses its default build tooling.
+npm audit may report vulnerabilities in dev tooling (webpack-dev-server, PostCSS, etc.).
+These do not affect the deployed static demo.
