@@ -6,6 +6,7 @@ import { Word } from '../store/Types';
 const Container = styled.section`
     margin: 2rem auto;
     max-width: 600px;
+    min-width: 190px;
     padding: 1rem;
     border: 1px solid #d4cdc0;
     border-radius: 4px;

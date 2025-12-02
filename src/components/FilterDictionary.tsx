@@ -5,7 +5,16 @@ import {filterStore} from '../store/FiltersStore';
 import styled from '@emotion/styled';
 import InputLabel from './InputLabel';
 import Chart from './Chart';
+import WordsList from './WordsList';
 
+const Layout = styled.div`
+    display: flex;
+    column-gap: 1rem;
+
+    @media (max-width: 960px) {
+        flex-direction: column;
+    }
+`
 const Title = styled.h1`
     margin: 0;
     padding: 1rem 0 0;
@@ -101,78 +110,81 @@ const FilterDictionary: React.FC = () => {
             filterStore.repeatSymbols(letter);
     },[]);
     
-    return <>
-        <Title>Dictionary Search</Title>
-        <Container>
-            <InputWrapper>
-               <InputLabel 
-                    name="startWordLetter" 
-                    id="startWordLetter" 
-                    label="How many words with start letter: "
-                    searchFilter={onStartWordLetter}
-                    maxLenght={1}
-                />
-                <Observer>{() => (<Counter>{ filterStore.countStartLetter }</Counter> )}</Observer> 
-            </InputWrapper>
-            
-            <InputWrapper>
-               <InputLabel 
-                    name="startWordLetters" 
-                    id="startWordLetters" 
-                    label="How many words with start letters: "
-                    searchFilter={onStartWordLetters}
-                />
-                <Observer>{() => (<Counter>{ filterStore.countStartLetters }</Counter> )}</Observer> 
-            </InputWrapper>
+    return <Layout>
+        <WordsList />
+        <div>
+            <Title>Dictionary Search</Title>
+            <Container>
+                <InputWrapper>
+                <InputLabel 
+                        name="startWordLetter" 
+                        id="startWordLetter" 
+                        label="How many words with start letter: "
+                        searchFilter={onStartWordLetter}
+                        maxLenght={1}
+                    />
+                    <Observer>{() => (<Counter>{ filterStore.countStartLetter }</Counter> )}</Observer> 
+                </InputWrapper>
+                
+                <InputWrapper>
+                <InputLabel 
+                        name="startWordLetters" 
+                        id="startWordLetters" 
+                        label="How many words with start letters: "
+                        searchFilter={onStartWordLetters}
+                    />
+                    <Observer>{() => (<Counter>{ filterStore.countStartLetters }</Counter> )}</Observer> 
+                </InputWrapper>
 
-            <InputWrapper>
-               <InputLabel 
-                    name="endLetter" 
-                    id="endLetter" 
-                    label="How many words end with the letter: "
-                    searchFilter={onEndWordLetter}
-                />
-                <Observer>{() => (<Counter>{ filterStore.countEndLetter }</Counter> )}</Observer> 
-            </InputWrapper>
-            
-            <InputWrapper>
-               <InputLabel 
-                    name="letterTimes" 
-                    id="letterTimes" 
-                    label="How many times does the letter appears: "
-                    searchFilter={onTimesLetter}
-                    maxLenght={1}
-                />
-                <Observer>{() => (<Counter>{ filterStore.countLetterTimes }</Counter> )}</Observer> 
-            </InputWrapper>
+                <InputWrapper>
+                <InputLabel 
+                        name="endLetter" 
+                        id="endLetter" 
+                        label="How many words end with the letter: "
+                        searchFilter={onEndWordLetter}
+                    />
+                    <Observer>{() => (<Counter>{ filterStore.countEndLetter }</Counter> )}</Observer> 
+                </InputWrapper>
+                
+                <InputWrapper>
+                <InputLabel 
+                        name="letterTimes" 
+                        id="letterTimes" 
+                        label="How many times does the letter appears: "
+                        searchFilter={onTimesLetter}
+                        maxLenght={1}
+                    />
+                    <Observer>{() => (<Counter>{ filterStore.countLetterTimes }</Counter> )}</Observer> 
+                </InputWrapper>
 
-            <InputWrapper>
-               <InputLabel 
-                    name="repeatSymbols" 
-                    id="repeatSymbols" 
-                    label="How many words have the same letter repeated: "
-                    searchFilter={onRepeatLetter}
-                    maxLenght={1}
-                />
-                <Observer>{() => (<Counter>{ filterStore.countRepeatSymbols }</Counter> )}</Observer> 
-            </InputWrapper>
-        </Container> 
-        
-        <ChartContainer ref={chartRef}>
-            <hr />
-            <Observer>
-                { () => (
-                    <Chart data={[
-                        filterStore.countStartLetter,
-                        filterStore.countStartLetters,
-                        filterStore.countEndLetter,
-                        filterStore.countLetterTimes,
-                        filterStore.countRepeatSymbols
-                    ]} />
-                )}
-            </Observer>
-        </ChartContainer>
-    </>
+                <InputWrapper>
+                <InputLabel 
+                        name="repeatSymbols" 
+                        id="repeatSymbols" 
+                        label="How many words have the same letter repeated: "
+                        searchFilter={onRepeatLetter}
+                        maxLenght={1}
+                    />
+                    <Observer>{() => (<Counter>{ filterStore.countRepeatSymbols }</Counter> )}</Observer> 
+                </InputWrapper>
+            </Container> 
+            
+            <ChartContainer ref={chartRef}>
+                <hr />
+                <Observer>
+                    { () => (
+                        <Chart data={[
+                            filterStore.countStartLetter,
+                            filterStore.countStartLetters,
+                            filterStore.countEndLetter,
+                            filterStore.countLetterTimes,
+                            filterStore.countRepeatSymbols
+                        ]} />
+                    )}
+                </Observer>
+            </ChartContainer>
+        </div>
+    </Layout>
 }
 
 export default  FilterDictionary;
