@@ -4,7 +4,7 @@ import { getWords } from '../api';
 import { Word } from '../store/Types';
 
 const Container = styled.section`
-    margin: 2rem auto;
+    margin: 0 auto;
     max-width: 300px;
     min-width: 190px;
     width: 100%;
